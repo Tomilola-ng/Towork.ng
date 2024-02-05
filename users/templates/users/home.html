@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pages %}
+    <section id="landing--page" class="w-100 plr-3 mt-4 row fw-wrap">
+        <div class="w-100 lg_w-50">
+            <h1 class="fs-1 f-col bold mb-4 mt-0">
+                Find verified Nigerian workers nearby 
+            </h1>
+            <div class="bg-white h-30vh bx-sh w-95 m-auto lg_m-0 bdrs row o-hide">
+                <div class="col h-100 w-35 success bi bi-lock" style="font-size: xx-large;">
+                    <p class="f-white fs-5"> Secured </p>
+                </div>
+                <div class="col h-100 w-30 bg-white f-green bi bi-clock" style="font-size: xx-large;">
+                    <p class="fs-5 f-green"> Fast </p>
+                </div>
+                <div class="col h-100 w-35 success bi bi-geo-alt" style="font-size: xx-large;">
+                    <p class="f-white fs-5"> Local </p>          
+                </div>
+            </div>
+        </div>
+        <div class="lg_w-10 h-100"></div>
+        <div class="w-100 lg_w-40">
+            <p class="fs-1 f-col bold mt-5 lg_mt-0 pl-1">
+                Be a worker in 3 easy steps
+            </p>
+            <div class="bg-white h-30vh w-95 bdrs p-2 o-hide">
+                <p class="pl-2 fs-5 bi bi-1-circle"> .  Verify your NIN </p>
+                <p class="pl-2 fs-5 bi bi-2-circle"> .  Get authenticated </p>
+                <p class="pl-2 fs-5 bi bi-3-circle mb-2"> .  Set up your work profile </p>
+                <small class="f-gray">The sooner you sign-up, the sooner you start getting Jobs </small>
+                <br>
+                <br>
+                <a href="{% url 'register' %}" class="bg-col p-2 bdrs f-white"> Sign-up Now <i class="f-white bi bi-triangle-fill t-r90 pl-2"></i> </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="carousel--page" class="w-100 mt-5 pb-3 lg_row lg_fw-wrap">
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+            lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src='{% static "img/hairdresser-latino.jpg" %}' alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Hairdresser nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+                    lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src="{% static 'img/latino-cleaner.jpg' %}" alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Cleaner nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+            lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src="{% static 'img/latino-carpenter.jpg' %}" alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Carpenter nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+                    lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src="{% static 'img/latino-barber.jpg' %}" alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Barber nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+                    lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src="{% static 'img/latino-chef.jpg' %}" alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Chef nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+        <div class="job-card bx-sh h-60 bdrs-10 w-80 o-hide m-auto mt-2 pb-2
+                    lg_w-30 lg_h-60 lg_mt-4
+        ">
+            <div class="img">
+                <img src="{% static 'img/latino-mechanic.jpg' %}" alt="Workers-Picture">
+            </div>
+            <div class="text fs-3 pl-3 pr-2 pbt-1">
+                <p>
+                    Find a verified Mechanic nearby
+                </p>
+                <a href="#hu" class="success bdrs plr-2 pbt-1 fs-6">Seek now !</a>
+            </div>
+        </div>
+    </section>
+{% endblock pages %} 

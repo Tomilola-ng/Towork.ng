@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+{% if user.profile.worker %}
+    <main class="p-2 bdrs mbt-2 m-auto w-90">
+            <p class="bold fs-4 w-100 mb-4">Availaible Jobs </p>
+        {% for object in object_list %}
+        <div class="w-100 h-20vh bdrs bg-white jc-sb bx-sh o-hide mb-4">
+            <p class="p-2">
+                {{ object }}
+            </p>
+            <a href="{{ object.get_absolute_url }}" class="success bi-eye mlr-2"> View</a>
+        </div>
+        {% endfor %}
+    </main>
+{% else %}
+    <a href="{% url 'seek-new' %}" class="fs-5 f-col bd-2-col bdrs m-auto w-100 mxw-150 pbt-3 mbt-3 row jc-sa bi-search">
+        Seek a Service
+    </a>
+{% endif %}
+{% endblock pages %} 

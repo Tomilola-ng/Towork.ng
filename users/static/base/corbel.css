@@ -1,0 +1,8 @@
+@font-face {
+    font-family: corbel;
+    src: url(./font/corbel.ttf);
+}
+
+* {
+    font-family: corbel;
+}

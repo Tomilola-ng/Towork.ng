@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<form method='POST' class='p-2 m-auto mbt-2 mxw-350'>
+    {% csrf_token %}
+    <p class="bold fs-4"> Sign-up </p>
+    {{ form.as_p }}
+    <div class="dp-flex ai-c w-95 jc-sb mt-3">
+        <button type="submit" class="bg-col bdrs-pill f-white as-fs plr-2 p-1 fs-6"> Sign-up </button>
+        <span class='mr-3 fs-6'>
+            Have an account, <a href="{% url 'login' %}" class="f-col"> Sign-in </a>
+        </span>
+    </div>
+</form>
+{% endblock pages %} 

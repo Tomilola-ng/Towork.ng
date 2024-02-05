@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+    <section id="dashboard" class="col w-100 plr-3 mbt-4">
+        {% if user.profile %}
+        <div class="bg-image mxw-200 mxh-200 w-100 h-30vh bx-sh bdrs-circle bd-4-col o-hide">
+            <img src="{{ user.profile.picture.url }}" alt="Profile Image" class="w-100 h-100">
+        </div>
+        <div class="mt-3 w-100 p-2 mxw-450">
+            <p class="fs-4 row jc-sb"> 
+                <span class="bold"> {{ user.username }} </span> 
+                {% if user.profile.worker %}
+                <a href="{% url 'worker-update' user.profile.worker.id %}" class="f-white bg-col plr-2 p-1 bdrs bi-arrow-right fs-6"> Update work info </a> 
+                {% else %}
+                <a href="{% url 'worker-new' %}" class="f-white bg-col plr-2 p-1 bdrs bi-arrow-right fs-6"> Become a Worker </a> 
+                {% endif %}
+            </p>
+            <div class="jc-sb bd-2-col bdrs p-2 pb-3">
+                <p class=""> <b>State</b> : {{ user.profile.state }} </p>
+                <p class=""> <b>Local-govt</b> : {{ user.profile.local_government }} </p>
+                <p class=""> <b>Gender</b> : {{ user.profile.gender }} </p>
+                <p class=""> <b>Phone</b> : {{ user.profile.phone }} </p>
+                <p class=""> <b>Bio</b> : {{ user.profile.bio }} </p>
+                <br>
+                <a href="{% url 'profile-update' user.profile.id %}" class="f-white bg-col plr-2 p-1 bdrs">
+                    Update Profile 
+                    <span class="bi-pencil-fill ml-2 f-white"></span>
+                </a>
+            </div> 
+            {% if user.worker %}
+            <p class=""> Job type : {{ user.worker.job }} </p>
+            <p class=""> Age : {{ user.worker.age }} years Old </p>
+            <p class=""> Number : {{ user.worker.phone }} </p>
+            {% endif %}
+        </div>
+        {% else %}
+        <div class="w-100 col p-2 bdrs bx-sh mbt-2 h-30vh mxh-200">
+            <marquee behavior="" direction="right">
+                <a href="{% url 'profile-create'  %}" 
+                class="f-white bg-col plr-2 bi-arrow-right">
+                    Set Up Your Profile 
+                </a> 
+            </marquee>
+        </div>
+        {% endif %}
+
+        {% if form %}
+        <main class="pos-fixed w-100 h-100 col">
+            <div style="opacity: 0.9;" class="bg-black w-100 h-100vh pos-absolute center"></div>
+            {% include 'workers/worker_form.html' %}
+        </main>
+        {% endif %}
+
+    </section>
+{% endblock pages %} 

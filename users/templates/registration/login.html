@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% block pages %}
+<form method='POST' class='p-2 m-auto mbt-2 mxw-300 lg_mxw-350'>
+    {% csrf_token %}
+    <a class="bold"> Sign-In </a>
+    <br>
+    <br>
+    {{ form.as_p }}
+    <div class="dp-flex ai-c w-95 jc-sb mt-3">
+        <button type="submit" class="bg-col bdrs f-white as-fs plr-2 p-1 fs-6"> Sign-In </button>
+        <span class='mr-3 fs-6'>
+            No account, <a href="{% url 'register' %}" class="f-col"> Sign-Up </a>
+        </span>
+    </div>
+    <div class="row container btn secondary-alt">
+        <a href="{% provider_login_url 'google'%}?next=/">
+            <i class="ep-google"></i>
+            Login with Google
+        </a>
+    </div>
+</form>
+{% endblock pages %} 

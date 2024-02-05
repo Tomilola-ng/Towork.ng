@@ -1,0 +1,11 @@
+<form method='POST' class='pl-4 m-auto mbt-2 mxw-350 pos-absolute bg-white bdrs pbt-4 w-100 bx-sh-col'>
+    {% csrf_token %}
+    <p class="bold fs-4 w-100"> {{ text }} </p>
+    <br>
+    {{ form.as_p }}
+    <br>
+    <div class="row jc-sb pr-4 fs-6">
+        <button type="submit" class="bg-col bdrs-pill f-white as-fs plr-3 p-1"> Submit </button>
+        <a href="{% url 'dashboard' %}" class="f-col pr-3">Go to dashboard</a>
+    </div>
+</form>

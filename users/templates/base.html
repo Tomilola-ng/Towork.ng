@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'base/icon.css' %}" />
+    <link rel="stylesheet" href="{% static 'base/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'base/lg_style.css' %}" />
+    <link rel="stylesheet" href="{% static 'base/corbel.css' %}" />
+    <style>
+        span.helptext,
+        #photo-clear_id {
+          display: none;
+        }
+        label {
+          font-size: 90%;
+          display: block;
+          padding-bottom: 7px;
+        }
+        form ul li {
+          font-size: 70%;
+          width: 85%;
+          margin-bottom:5px;
+          color: var(--gray);
+        }
+        form ul.errorlist li {
+          color: var(--red);
+        }
+        select {
+            border: 2px solid var(--black);
+            width: 150px;
+            padding-bottom: 3px;
+        }
+        textarea {
+            box-shadow: 0;
+            padding-left: 0.81em;
+            border: 2px solid var(--black);
+        }
+        .ox-scroll {
+            overflow-x: scroll;
+        }
+        .w-f-200 {
+            width: 300px;
+        }
+      </style>
+    <title> Towork.ng </title>
+</head>
+<body>
+    <main id="app" class="mxw-400 m-auto lg_mxw-900">
+        <header class="w-100 row jc-sb p-1 plr-3 lg_p-3 pos-relative">
+            <a href="{% url 'home' %}" class="logo bi-globe-europe-africa fs-4">
+                Towork.ng
+            </a>
+            <nav class="w-50 ml-5 dp-none lg_dp-flex jc-sa">
+                <a href="{% url 'home' %}" class="plr-1 bi-house"> Home</a>
+                {% if user.profile %}
+                <a href="{% url 'seek-new' %}" class="plr-1 bi-people"> Seek a Service</a>
+                {% endif %}
+                <a href="{% url 'dashboard' %}" class="plr-1 bi-person"> Profile</a>
+                <a href="{% url 'login' %}" class="plr-1 bi-lock "> Login</a>
+                <a href="#" class="plr-1 bi-info "> About Us</a>
+            </nav>
+            <div class="row">
+                <div class="menu-btn mlr-2 pt-1 fs-3 lg_dp-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" viewBox="0 0 16 16">
+                        <path d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg> 
+                </div>
+                {% if user.profile %}
+                    <a href="{% url 'seek-new' %}" class="bg-col f-white row pbt-1 plr-3 bdrs pos-relative h-60 fs-6">
+                        <i class="bi-search f-white pr-2"></i> Seek
+                    </a> 
+                    {% if user.profile.worker %}
+                    <a href="{% url 'seek' %}" class="bg-green col ml-2 bdrs pos-relative h-60 bi-bell f-white p-2 pbt-1"></a> 
+                    {% endif %}
+                {% else %}
+                    <a href="{% url 'profile-create' %}" class="bd-2-red f-red row plr-1 bdrs pos-relative h-60">
+                        Profile <i class="bi-question f-red"></i>
+                    </a> 
+                {% endif %}
+            </div> 
+            <nav class="menu-dropdown w-100 h-45vh pos-absolute bg-white p-2 bdrs bx-sh col dp-none lg_dp-none top-left mt-1">
+                <a href="{% url 'home' %}" class="w-100 h-20 bg-col mb-2 f-white p-2 fs-4 bi-house"> Home</a>
+                {% if user.profile %}
+                <a href="{% url 'seek-new' %}" class="w-100 h-20 bg-col mb-2 f-white p-2 fs-4 bi-people"> Seek </a>
+                <a href="{% url 'dashboard' %}" class="w-100 h-20 bg-col mb-2 f-white p-2 fs-4 bi-person"> Profile</a>
+                {% else %}
+                <a href="{% url 'profile-create' %}" class="w-100 bdrs h-40 bd-2-red mb-2 f-red p-2 pb-3 fs-4 bi-person"> Profile !
+                    <br>
+                    <span class="fs-6 f-gray w-100"> You need to create a profile to get access to all the features </span>
+                </a>
+                {% endif %}
+                <a href="{% url 'login' %}" class="w-100 h-20 bg-col mb-2 f-white p-2 fs-4 bi-lock-fill"> Login</a>
+                <a href="#" class="w-100 h-20 bg-col mb-2 f-white p-2 fs-4 bi-info"> About Us</a>
+
+                <span class="close-menu-btn bi-x-circle bold fs-2"> Close </span>
+            </nav>
+            
+            <script>
+                const menuBtn = document.querySelector(".menu-btn");
+                const closeMenuBtn = document.querySelector(".close-menu-btn");
+                menuBtn.addEventListener("click", dropmenu);
+                closeMenuBtn.addEventListener("click", dropmenu);
+                function dropmenu(e) {
+                    document.querySelector('.menu-dropdown').classList.toggle('dp-none')
+                }
+            </script>
+        </header>
+        
+        {% block pages %}{% endblock pages %}
+        
+        <footer class="o-hide plr-3">
+            <div class="bg-gray bdrs p-2">
+                <p class="bold fs-5">
+                    Contact Us
+                </p>
+                <a href="#" class="bi-linkedin"> LinkedIn </a> <a href="#" class="bi-google pl-2"> Email</a>
+                <br>
+                <p class="bold fs-5 mt-3">
+                    FAQ
+                </p>
+                <a href="#" class="bi-dot">How to become a worker ?</a>
+                <br>
+                <a href="#" class="bi-dot">Is my Info Safe ?</a>
+                <p class="mt-3 pl-1 bi-c-circle fs-6 bold"> 2022 </p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

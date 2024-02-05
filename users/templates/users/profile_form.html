@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<form method='POST' enctype="multipart/form-data" class='p-2 m-auto mbt-2 mxw-350'>
+    {% csrf_token %}
+    <p class="bold fs-4"> Set-up your Profile </p>
+    {{ form.as_p }}
+    <button type="submit" class="bg-col bdrs f-white as-fs plr-2 p-1 fs-6"> Submit </button>
+</form>
+{% endblock pages %} 

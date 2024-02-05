@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block pages %}
+<form method='POST' class='m-auto mbt-2 mxw-350 bg-white bdrs pbt-4 w-100'>
+    {% csrf_token %}
+    <p class="bold fs-4 w-100"> Seek a service </p>
+    <br>
+    {{ form.as_p }}
+    <br>
+    <div class="row jc-sb pr-4 fs-6">
+        <button type="submit" class="bg-col bdrs-pill f-white as-fs plr-3 p-1"> Submit </button>
+        <a href="{% url 'dashboard' %}" class="f-col pr-3">Back to dashboard</a>
+    </div>
+</form>
+{% endblock pages %}
