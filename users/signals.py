@@ -1,4 +1,4 @@
-""" Signals """
+""" Users Signals """
 # pylint: disable=unused-argument
 
 from django.dispatch import receiver

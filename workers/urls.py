@@ -1,8 +1,9 @@
+""" Workers URLs """
 from django.urls import path
-from .views import createWorker, workerUpdate
+from .views import CreateWorker, WorkerUpdate
 
 urlpatterns = [
-    path('', createWorker.as_view(), name='worker'),
-    path('new/', createWorker.as_view(), name='worker-new'),
-    path('<int:pk>/update/', workerUpdate.as_view(), name='worker-update'),
+    path('', CreateWorker.as_view(), name='worker'),
+    path('new/', CreateWorker.as_view(), name='worker-new'),
+    path('<int:pk>/update/', WorkerUpdate.as_view(), name='worker-update'),
 ]
