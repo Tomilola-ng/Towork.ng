@@ -18,20 +18,19 @@ urlpatterns = [
 
     path('accounts/', include('django.contrib.auth.urls')),
 
-    path('accountauth/', include('allauth.urls')),
-
-    # User Views 
+    # User Views
     path('dashboard/', include('users.urls')),
 
-    # Worker Views 
+    # Worker Views
     path('worker/', include('workers.urls')),
 
-    # Seek Views 
+    # Seek Views
     path('seek/', include('seek.urls')),
 
     # Redirect View
-    path('', homeView , name='home')
+    path('', homeView, name='home')
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
