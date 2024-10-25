@@ -1,14 +1,12 @@
+"""Towork URL Configuration"""
+
 from django.contrib import admin
+from django.conf import settings
 from django.urls import path, include
+from django .conf.urls.static import static
 
 from users.views import home as homeView
 from users.views import register as registerView
-from users.views import profileCreate
-from users.views import dashboard as dashboardView
-
-from django.conf import settings
-from django .conf.urls.static import static
-
 
 urlpatterns = [
     path('auth/', admin.site.urls),
@@ -17,6 +15,7 @@ urlpatterns = [
     path('register/', registerView, name='register'),
 
     path('accounts/', include('django.contrib.auth.urls')),
+    path("accounts/social/", include("allauth.urls")),
 
     # User Views
     path('dashboard/', include('users.urls')),
