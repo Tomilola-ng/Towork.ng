@@ -15,7 +15,8 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://towork.onrender.com', 'https://*.github.dev']
+CSRF_TRUSTED_ORIGINS = [
+    'https://towork-ng.onrender.com', 'https://*.github.dev']
 
 
 INSTALLED_APPS = [
